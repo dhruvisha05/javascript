@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.ck input{
+			height: 30px;
+			width: 30px;
+			margin-left: 10px;
+		}
+		.ck{
+			margin-top: 100px;
+			margin-left: 400px;
+		}
+	</style>
+	<script type="text/javascript">
+		function btn(x)
+		{
+			var v=document.getElementById('b'+x);
+			if(v.checked==true)
+			{
+				if(x==1)
+				{
+					for(var i=1;i<=100;i++)
+					{
+						document.getElementById('b'+i).checked=true;
+					}
+				}
+				else if(x<=10)
+				{
+					for(var j=x;j<=100;j=j+10)
+					{
+						document.getElementById('b'+j).checked=true;
+					}
+				}
+				else
+				{
+					for(var j=x;j<x+10;j++)
+					{
+						document.getElementById('b'+j).checked=true;	
+					}
+				}
+			}
+			else
+			{
+				if(x==1)
+				{
+					for(var i=1;i<=100;i++)
+					{
+						document.getElementById('b'+i).checked=false;
+					}
+				}
+				else if(x<=10)
+				{
+					for(var j=x;j<=100;j=j+10)
+					{
+						document.getElementById('b'+j).checked=false;
+					}
+				}
+				else
+				{
+					for(var j=x;j<x+10;j++)
+					{
+						document.getElementById('b'+j).checked=false;	
+					}
+				}
+			}
+		}
+	</script>
+</head>
+<body>
+
+	<div class="ck">
+		<input type="checkbox" onclick="btn(1)" id="b1" name="">
+		<input type="checkbox" onclick="btn(2)" id="b2" name="">
+		<input type="checkbox" onclick="btn(3)" id="b3" name="">
+		<input type="checkbox" onclick="btn(4)" id="b4" name="">
+		<input type="checkbox" onclick="btn(5)" id="b5" name="">
+		<input type="checkbox" onclick="btn(6)" id="b6" name="">
+		<input type="checkbox" onclick="btn(7)" id="b7" name="">
+		<input type="checkbox" onclick="btn(8)" id="b8" name="">
+		<input type="checkbox" onclick="btn(9)" id="b9" name="">
+		<input type="checkbox" onclick="btn(10)" id="b10" name="">
+		<br><br>
+		<input type="checkbox" id="b11" onclick="btn(11)" name="">
+		<input type="checkbox" id="b12" name="">
+		<input type="checkbox" id="b13" name="">
+		<input type="checkbox" id="b14" name="">
+		<input type="checkbox" id="b15" name="">
+		<input type="checkbox" id="b16" name="">
+		<input type="checkbox" id="b17" name="">
+		<input type="checkbox" id="b18" name="">
+		<input type="checkbox" id="b19" name="">
+		<input type="checkbox" id="b20" name="">
+		<br><br>
+		<input type="checkbox" id="b21" onclick="btn(21)" name="">
+		<input type="checkbox" id="b22" name="">
+		<input type="checkbox" id="b23" name="">
+		<input type="checkbox" id="b24" name="">
+		<input type="checkbox" id="b25" name="">
+		<input type="checkbox" id="b26" name="">
+		<input type="checkbox" id="b27" name="">
+		<input type="checkbox" id="b28" name="">
+		<input type="checkbox" id="b29" name="">
+		<input type="checkbox" id="b30" name="">
+		<br><br>
+		<input type="checkbox" id="b31" onclick="btn(31)" name="">
+		<input type="checkbox" id="b32" name="">
+		<input type="checkbox" id="b33" name="">
+		<input type="checkbox" id="b34" name="">
+		<input type="checkbox" id="b35" name="">
+		<input type="checkbox" id="b36" name="">
+		<input type="checkbox" id="b37" name="">
+		<input type="checkbox" id="b38" name="">
+		<input type="checkbox" id="b39" name="">
+		<input type="checkbox" id="b40" name="">
+		<br><br>
+		<input type="checkbox" id="b41" onclick="btn(41)" name="">
+		<input type="checkbox" id="b42" name="">
+		<input type="checkbox" id="b43" name="">
+		<input type="checkbox" id="b44" name="">
+		<input type="checkbox" id="b45" name="">
+		<input type="checkbox" id="b46" name="">
+		<input type="checkbox" id="b47" name="">
+		<input type="checkbox" id="b48" name="">
+		<input type="checkbox" id="b49" name="">
+		<input type="checkbox" id="b50" name="">
+		<br><br>
+		<input type="checkbox" id="b51" onclick="btn(51)" name="">
+		<input type="checkbox" id="b52" name="">
+		<input type="checkbox" id="b53" name="">
+		<input type="checkbox" id="b54" name="">
+		<input type="checkbox" id="b55" name="">
+		<input type="checkbox" id="b56" name="">
+		<input type="checkbox" id="b57" name="">
+		<input type="checkbox" id="b58" name="">
+		<input type="checkbox" id="b59" name="">
+		<input type="checkbox" id="b60" name="">
+		<br><br>
+		<input type="checkbox" id="b61" onclick="btn(61)" name="">
+		<input type="checkbox" id="b62" name="">
+		<input type="checkbox" id="b63" name="">
+		<input type="checkbox" id="b64" name="">
+		<input type="checkbox" id="b65" name="">
+		<input type="checkbox" id="b66" name="">
+		<input type="checkbox" id="b67" name="">
+		<input type="checkbox" id="b68" name="">
+		<input type="checkbox" id="b69" name="">
+		<input type="checkbox" id="b70" name="">
+		<br><br>
+		<input type="checkbox" id="b71" onclick="btn(71)" name="">
+		<input type="checkbox" id="b72" name="">
+		<input type="checkbox" id="b73" name="">
+		<input type="checkbox" id="b74" name="">
+		<input type="checkbox" id="b75" name="">
+		<input type="checkbox" id="b76" name="">
+		<input type="checkbox" id="b77" name="">
+		<input type="checkbox" id="b78" name="">
+		<input type="checkbox" id="b79" name="">
+		<input type="checkbox" id="b80" name="">
+		<br><br>
+		<input type="checkbox" id="b81" onclick="btn(81)" name="">
+		<input type="checkbox" id="b82" name="">
+		<input type="checkbox" id="b83" name="">
+		<input type="checkbox" id="b84" name="">
+		<input type="checkbox" id="b85" name="">
+		<input type="checkbox" id="b86" name="">
+		<input type="checkbox" id="b87" name="">
+		<input type="checkbox" id="b88" name="">
+		<input type="checkbox" id="b89" name="">
+		<input type="checkbox" id="b90" name="">
+		<br><br>
+		<input type="checkbox" id="b91" onclick="btn(91)" name="">
+		<input type="checkbox" id="b92" name="">
+		<input type="checkbox" id="b93" name="">
+		<input type="checkbox" id="b94" name="">
+		<input type="checkbox" id="b95" name="">
+		<input type="checkbox" id="b96" name="">
+		<input type="checkbox" id="b97" name="">
+		<input type="checkbox" id="b98" name="">
+		<input type="checkbox" id="b99" name="">
+		<input type="checkbox" id="b100" name="">
+		<br><br>
+	</div>
+
+</body>
+</html>

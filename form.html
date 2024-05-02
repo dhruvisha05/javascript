@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>form 1</title>
+	<style type="text/css">
+		.tb{
+			top: 100px;
+
+			background:pink;
+		}
+	</style>
+	<script type="text/javascript">
+		function validdata(){
+			var name=document.getElementById('name').value;
+			var email=document.getElementById('email').value;
+			var contact=document.getElementById('contact').value;
+			var gender=document.getElementsByClassName('gender');
+			var hobby=document.getElementsByClassName('hobby');
+			var textarea=document.getElementById('textarea').value;
+			var city=document.getElementById('city').value;
+			var filter = /^([\w-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([\w-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$/;
+
+
+			if(name=="")
+			{
+				alert("Enter name");
+				return false;
+			}else if(/\W/.test(name) == true){
+				alert("dont use special characters")
+				return false;
+			}else if(/\d/.test(name) == true){
+				alert("dont use numbers")
+				return false;
+			}
+
+		// ------
+			if(email=="")
+			{
+				alert("Enter email");
+				return false;
+			}else if(filter.test(email)===false)
+			{
+				alert("enter valid email");
+				return false;
+			}
+		// -------
+
+			if(contact=="")
+			{
+				alert("Enter contact");
+				return false;
+			}else if(/\d/.test(name) == false){
+				alert("dont use numbers")
+				return false;
+			}
+			if(gender[0].checked == false && gender[1].checked == false)
+			{
+				alert("select gender");
+				return false;
+			}
+			if(hobby[0].checked == false && hobby[1].checked == false && hobby[2].checked == false && hobby[3].checked == false)
+			{
+				alert("select Hobby");
+				return false;
+			}
+			if(textarea=="")
+			{
+				alert("Enter textarea");
+				return false;
+			}
+			if(city=="")
+			{
+				alert("Enter city");
+				return false;
+			}
+		}
+	</script>
+</head>
+<body>
+	<form onsubmit="return validdata()" class="form">
+		<table class="tb">
+			<tr>
+				<td>NAME :</td>
+				<td>
+					<input type="text" id="name" name="name">
+				</td>
+			</tr>
+			<tr>
+				<td>EMAIL :</td>
+				<td><input type="text" id="email" name="email"></td>
+			</tr>
+			<tr>
+				<td>CONTACT :</td>
+				<td><input type="text" id="contact" name="contact"></td>
+			</tr>
+			<tr>
+				<td>GENDER :</td>
+				<td>
+					<input type="radio" class="gender" name="gender">MALE
+					<input type="radio" class="gender" name="gender">FEMALE
+				</td>
+			</tr>
+			<tr>
+				<td>HOBBY :</td>
+				<td>
+					<input type="checkbox" class="hobby" name="">Reading
+					<input type="checkbox" class="hobby" name="">Cooking
+					<input type="checkbox" class="hobby" name="">Playing
+					<input type="checkbox" class="hobby" name="">Codding
+				</td>
+			</tr>
+			<tr>
+				<td>ADDRESS</td>
+				<td>
+					<textarea id="textarea"></textarea>
+				</td>
+			</tr>
+			<tr>
+				<td>CITY :</td>
+				<td>
+					<select id="city">
+						<option value="">---Select City---</option>
+						<option value="surat">surat</option>
+						<option value="bhruch">bhruch</option>
+						<option value="vadodra">vadodra</option>
+					</select>
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="submit" value="submit" name="">
+				</td>
+			</tr>
+		</table>
+	</form>
+
+</body>
+</html>

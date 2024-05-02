@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		body{
+			background: black;
+			text-align: center;
+			font-size: 30px;
+
+		}
+		.input{
+			color: white;
+		}
+		.input>input{
+			width: 200px;
+			margin: 20px;
+			font-size: 30px;
+			padding: 20px;
+		}
+		.result >input{
+			font-size: 30px;
+			width: 300px;
+			padding: 20px;
+			color: white;
+			background: black;
+			border: none;
+		}
+	</style>
+	<script type="text/javascript">
+		var hour,min,sec,a=0;
+		function get() {
+			hour=document.getElementById('hour').value;
+		 	min=document.getElementById('min').value;
+		 	sec=document.getElementById('sec').value;
+			if(sec==""){
+				alert("Enter second");
+				return false;
+			}else if(sec>60){
+				alert("Enter max 60 second");
+				return false;
+
+			}
+			if(min==''){
+				alert("Enter Min");
+				return false;
+
+			}else if(min>60){
+				alert("enter max 60 min");
+				return false;
+
+			}
+			if(hour==''){
+				alert("Enter Hour");
+				return false;
+
+			}else if(hour>24){
+				alert("enter max 24 hour");
+				return false;
+
+			}
+			console.log(sec);
+			console.log(min);
+			console.log(hour);
+			time();
+
+		}
+
+		function time() {
+			hour=document.getElementById('hour').value;
+		 	min=document.getElementById('min').value;
+		 	sec=document.getElementById('sec').value;
+		 	timer=setInterval(()=>{
+			document.getElementById("time").value=" "+hour+"  :  "+min+"  :  "+sec;sec++;
+				if(sec==60)
+				{
+					sec=0;
+					min++;
+				}
+				if(min==60)
+				{
+					min=0;
+					hour++;
+				}
+			},1000)
+		}
+		function stop() {
+			clearInterval(timer);
+		}
+		function restart(){
+			timer=setInterval(()=>{
+			document.getElementById("time").value=" "+hour+"  :  "+min+"  :  "+sec;sec++;
+				if(sec==60)
+				{
+					sec=0;
+					min++;
+				}
+				if(min==60)
+				{
+					min=0;
+					hour++;
+				}
+			},1000)
+		}
+		function reset(){
+			clearInterval(timer);
+			document.getElementById('hour').value="";
+		 	document.getElementById('min').value="";
+		 	document.getElementById('sec').value="";
+		 	hour=0;
+		 	min=0;
+		 	sec=0;
+		 	document.getElementById("time").value=" "+hour+"  :  "+min+"  :  "+sec;sec++;
+		}
+	</script>
+</head>
+<body>
+<div class="input">
+	Hour :<input type="text" name="" id="hour">
+	Min :<input type="text" name="" id="min">
+	Sec :<input type="text" name="" id="sec">
+</div>
+<div class="input">
+	<input type="button" value="Start" onclick="get()" name="">
+	<input type="button" value="Stop" onclick="stop()" name="">
+	<input type="reset" value="Reset" onclick="reset()" name="">
+	<input type="reset" value="ReStart" onclick="restart()" name="">
+</div>
+<div class="result">
+	<input type="button" name="" id="time" value="">
+	
+</div>
+</body>
+</html>
