@@ -1,0 +1,141 @@
+ <!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<style type="text/css">
+		.pz{
+			display: flex;
+			justify-content: center;
+		}
+		.start{
+			display: flex;
+			justify-content: center;
+			margin-top:200px;
+		}
+		.start input{
+			height:30px;
+			width: 150px;
+			margin-left: 30px;	
+			box-shadow: 0px 0px 3px 2px blueviolet;
+			background-color: black;
+			color: white;
+
+		}
+		.pz input{
+			height:100px;
+			width:100px;
+			background-color:black;
+			color: white;
+			font-size: 20px;
+		}
+	</style>
+	<script type="text/javascript">
+		var k,move=0;
+		function game(){
+			time();
+			var arr=[];
+			for (var i = 1; i<=9; i++) {
+				var val=Math.floor(Math.random()*9+1);
+				if(!arr.includes(val)){
+					arr.push(val);
+				}else{
+					i--;
+				}
+				
+			console.log(val);
+			}
+		
+			for (var i = 1; i <=arr.length; i++) {
+				if(arr[i]==9)
+					{
+					arr[i]='';
+					k=i;
+					}	
+			}
+			for (var i =0; i <=9; i++) {
+				document.getElementById('b'+i).value=arr[i];
+		}
+		
+	}
+	function swap(x)
+	{	
+		if(k+1==x || k-1==x || k+3==x || k-3==x)
+		{
+			move++;
+			var a=document.getElementById('b'+x).value;
+			var swap=a;
+			a='';
+			document.getElementById('b'+x).value=a;
+			document.getElementById('b'+k).value=swap;
+			k=x;
+			document.getElementById('move').value=move;
+
+		}
+	}
+
+
+	function time(){
+	var j=0,i=0,h=0;
+		timer=setInterval(()=>{
+			document.getElementById("time").value=""+h+":"+j+":"+i;i++;
+			if(i==61)
+			{
+				i=0;
+				j++;
+			}
+			if(j==61)
+			{
+				j=0;
+				h++;
+			}
+		},1000)	
+	}
+	
+		// 	public class Main {
+		//   	public static void main(String[] args) {
+		//     	System.out.println("Hello World");
+		//   	}
+		// }
+	// function time(){
+	// 	var j=0,i=0,h=0;
+	// 	timer=setInterval(()=>{
+	// 		document.getElementById('time').value=""+h+":"+j+":"+i;i++;
+	// 		if(i==61)
+	// 		{
+	// 			i=0;
+	// 			j++;
+	// 		}
+	// 		if
+	// 	})
+	// }
+	</script>
+</head>
+<body>
+	<div class="start">
+		<input type="button" name="" onclick="game()" value="game start">
+		<input type="button" name="" id="time" value="">
+		<input type="button" name="" id="move" onclick="swap()" value="">
+	</div>
+	
+	<br><br>
+	<div class="pz">
+		<input type="button" value=" " id="b0" value="" onclick="swap(0)">
+		<input type="button" value=" " id="b1" value="" onclick="swap(1)">
+		<input type="button" value=" " id="b2" value="" onclick="swap(2)">
+	</div>
+	<div class="pz">	
+		<br><br>
+		<input type="button" value=" " id="b3" value="" onclick="swap(3)">
+		<input type="button" value=" " id="b4" value="" onclick="swap(4)">
+		<input type="button" value=" " id="b5" value="" onclick="swap(5)">
+	</div>
+	<div class="pz">	
+		<br><br>
+		<input type="button" value=" " id="b6" value="" onclick="swap(6)">
+		<input type="button" value=" " id="b7" value="" onclick="swap(7)">
+		<input type="button" value=" " id="b8" value="" onclick="swap(8)">
+	</div>
+
+
+</body>
+</html>

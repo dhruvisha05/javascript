@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		body{
+/*			margin:100px 100px;*/
+		}
+		.flex{
+			display: flex;
+			justify-content: center;
+		}
+		input{
+			height: 150px;
+			width: 150px;
+			background-color:transparent;
+			color: black;
+			font-size: 25px;
+		}
+		.res{
+			text-align: center;
+		}
+		.res button{
+			padding: 10px 40px;
+			font-size: 20px;
+			color: skyblue;
+			background-color: black;
+		}
+		#p1,#p2,#p3{
+			border-top:none ;
+		}
+		#p7,#p8,#p9{
+			border-bottom: none;
+		}
+		#p1,#p4,#p7{
+			border-left: none;
+		}
+		#p3,#p6,#p9{
+			border-right: none;
+		}
+	</style>
+	<script type="text/javascript">
+		var t=0;
+		function data(s) {
+			
+			var x=document.getElementById('p'+s).value;
+			if(x==""){
+				if(t%2==0){
+					document.getElementById('p'+s).value='X';
+				}else{
+				
+					document.getElementById('p'+s).value='O';
+				}
+				t++;	
+				check();	
+			}	
+		}
+		function check(){
+			var p1=document.getElementById('p1').value;
+			var p2=document.getElementById('p2').value;
+			var p3=document.getElementById('p3').value;
+			var p4=document.getElementById('p4').value;
+			var p5=document.getElementById('p5').value;
+
+
+			var p6=document.getElementById('p6').value;	
+			var p7=document.getElementById('p7').value;
+			var p8=document.getElementById('p8').value;
+			var p9=document.getElementById('p9').value;
+
+			win(p1,p2,p3,'X');
+			win(p4,p5,p6,'X');
+			win(p7,p8,p9,'X');
+			win(p1,p4,p7,'X');
+			win(p2,p5,p8,'X');
+			win(p3,p6,p9,'X');
+			win(p1,p5,p9,'X');
+			win(p3,p5,p7,'X');
+			win(p1,p2,p3,'O');
+			win(p4,p5,p6,'O');
+			win(p7,p8,p9,'O');
+			win(p1,p4,p7,'O');	
+			win(p2,p5,p8,'O');
+			win(p3,p6,p9,'O');
+			win(p1,p5,p9,'O');
+			win(p3,p5,p7,'O');
+			
+		}
+		function win(p1,p2,p3,sign) {
+			if(p1==sign && p2==sign && p3==sign){
+				document.getElementById('ans').innerHTML="<h2> Player "+sign+" is Win ✨</h2>";
+			}
+		}
+		
+
+		function reset(){
+			location.reload();
+			p1=p2=p3=p4=p5=p6=p7=p8=p9;	
+		}
+		</script>
+</head>
+<body>
+	<div class="flex demo1">
+		<input type="button" id="p1" onclick="data('1');" name="">
+		<input type="button"id="p2" onclick="data('2');" name="">
+		<input type="button"id="p3" onclick="data('3');" name="">
+	</div>	
+	<div class="flex">
+		<input type="button" id="p4" onclick="data('4');" name="">
+		<input type="button" id="p5" onclick="data('5');" name="">
+		<input type="button" id="p6" onclick="data('6');" name="">
+	</div>	
+	<div class="flex">
+		<input type="button" id="p7" onclick="data('7');" name="">
+		<input type="button" id="p8" onclick="data('8');" name="">
+		<input type="button" id="p9" onclick="data('9');" name="">
+	</div>	
+	<div id="ans" style="text-align: center; margin-top: 70px;"></div>
+	<div class="res">
+		<button onclick="reset()">RESET</button>
+	</div>
+</body>
+</html>

@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style type="text/css">
+		.main{
+			height: 560px;
+			width: 310px;
+			margin-left: 400px;
+			margin-top: 100px;
+			background-color:#3A4655;
+		}
+		.top{
+			height: 30%;
+			border-bottom: 2px pink solid;
+		}
+		.bottom{
+			height: 70%;
+			display: flex;
+		}
+		.bottom .left{
+			margin-left: 8px;
+			justify-content: space-between;
+
+		}
+		
+		.bottom input{
+			height: 70px;
+			width: 70px;
+			margin-top:7px ;
+		}
+		.bottom .left input{
+			background-color: #404D5E;
+			color: white;
+			border: none;
+			font-size: 20px;
+
+		}
+		.bottom .left input:hover{
+			background-color: white;
+			transition: .3s;
+			color: black;
+			border: none;
+			cursor: pointer;
+		}
+
+
+	</style>
+	<script type="text/javascript">
+		var fv,lv,val;
+		function pr(x) {
+			var x=document.getElementById('ans').value+=x;
+		}
+		
+		function deta(ch){
+
+		fv=document.getElementById('ans').value;
+	 	document.getElementById('ans').value="";
+	 	val=ch;
+		}
+		function cal() {
+	 		lv=document.getElementById('ans').value;
+		 	switch(val)
+		 	{
+		 		case 1:
+		 		{
+		 			var s=parseInt(fv)+parseInt(lv);
+		 			document.getElementById('ans').value=s;
+			 		break;
+		 		}
+		 		case 2:
+		 		{
+		 			var s=parseInt(fv)-parseInt(lv);
+		 			document.getElementById('ans').value=s;
+			 		break;
+		 		}
+		 		case 3:
+		 		{
+		 			var s=parseInt(fv)*parseInt(lv);
+		 			document.getElementById('ans').value=s;
+			 		break;
+		 		}
+		 		case 4:
+		 		{
+		 			var s=parseInt(fv)/parseInt(lv);
+		 			document.getElementById('ans').value=s;
+			 		break;
+		 		}
+		 		case 5:
+		 		{
+		 			var s=parseInt(fv)%parseInt(lv);
+		 			document.getElementById('ans').value=s;
+			 		break;
+		 		}
+		 	}
+		}
+
+		function clrdata(){
+			document.getElementById('ans').value='';
+		}
+		function deldata(){
+			var del=document.getElementById('ans').value;
+			var m=del.substring(0,del.length-1);
+			document.getElementById('ans').value=m;
+		}
+	</script>
+</head>
+<body>
+
+	<div class="main">
+		<div class="top">
+			<input type="text" id="ans" name="" readonly style="background-color: transparent;color: white; border: none; margin-top:20px ; margin-left:20px ; font-size: 20px;">
+		</div>
+		<div class="bottom ">
+			<div class="left">
+			<input type="button"  value="AC" onclick="clrdata()" name="">
+			<input type="button" value="DEL" onclick="deldata()" name=""> 
+			<input type="button" value="%" onclick="deta(5)" name="">
+			<input type="button" value="/" onclick="deta(4)" name="">
+			<input type="button" value="7" onclick="pr('7')" name="">
+			<input type="button" value="8" onclick="pr('8')" name="">
+			<input type="button" value="9" onclick="pr('9')" name="">
+			<input type="button" value="X" onclick="deta(3)" name="">
+			<input type="button" value="4" onclick="pr('4')" name="">
+			<input type="button" value="5" onclick="pr('5')"name="">
+			<input type="button" value="6" onclick="pr('6')"name="">
+			<input type="button" value="-" onclick="deta(2)" name="">
+			<input type="button" value="1" onclick="pr('1')" name="" >
+			<input type="button" value="2" onclick="pr('2')"name="">
+			<input type="button" value="3" onclick="pr('3')"name="">
+			<input type="button" value="+" onclick="deta(1)" name="">
+			<input type="button" value="." onclick="pr('.')" name="">
+			<input type="button" value="0"  onclick="pr('0')" name="">
+			<input type="button" value="00" onclick="pr('00')" name="">
+			<input type="button" value="=" onclick="cal()" name="">
+			</div>
+		</div>
+	</div>
+
+</body>
+</html>

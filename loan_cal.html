@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<style>
+		.loan{
+			background: #aaa;
+			color: white;
+			height: 300px;
+			width: 400px;
+			padding: 50px;
+			font-size: 20px;
+			margin-left: 300px;
+			margin-top: 100px;
+		}
+		.loan input{
+			padding: 5px;
+		}
+		.title h2{
+			display: flex;
+			justify-content: space-between;
+		}
+	</style>
+	<script type="text/javascript">
+		
+		function ans(){
+			var amount=parseFloat(document.getElementById('amount').value);
+			var year=parseFloat(document.getElementById('month').value);
+			var rate=parseFloat(document.getElementById('rate').value)/100/12;
+			document.write("<h1>Total Month := "+year*12+" Months</h1>");
+			var month=year*12;
+
+
+			var emi=amount*rate*(1+rate)**month/((1+rate)**month-1);
+			document.write("<h1>Total EMI := "+emi.toFixed(2)+"</h1>");
+
+			var interest=emi*month;
+			document.write("<h1>Total Interest := "+interest.toFixed(2)+"</h1>");
+
+			var t_interest=interest-amount;
+			document.write("<h1>Total Interest := "+t_interest.toFixed(2)+"</h1>");
+
+			var y_interest=t_interest/year;
+			document.write("<h1>Yearly Interest := "+y_interest.toFixed(2)+"</h1>");
+
+			var cr_date=new Date();
+			var cr_year=cr_date.getFullYear();
+			var cr_month=cr_date.getMonth();
+
+			var month_name=[
+					"jan","feb","mar","apr","may","jun","jul","aug","stp","oct","nov","dec"
+				];
+
+				document.write("<br><hr>")
+				document.write("<h2>Month & Year &nbsp&nbsp&nbsp&nbsp Starting Blance &nbsp&nbsp&nbsp&nbsp Intrest Paid &nbsp&nbsp&nbsp&nbsp Principal paid &nbsp&nbsp&nbsp&nbsp&nbsp Emi &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp End balance &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp</h2>");
+				
+				// var m_date=new Date(cr_year,cr_month+i-1,1);
+				// var m_name=m_date.toLocaleString('en-us'+month+'short');
+				// var m_year=document.getElementById(ans).value=m_name,m_date.getFullYear();
+
+
+			var balance=amount;
+			for(l=1;l<=month;l++) 
+			{ 
+				var interest_paid=balance*rate;
+				var paid_amount=emi-interest_paid;
+				var end_balance=balance-paid_amount; 
+
+			
+
+				document.write("<br><h1>"+month_name[cr_month]+"-"+cr_year+"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+balance.toFixed(2)+
+					"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+interest_paid.toFixed(2)+
+					"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+paid_amount.toFixed(2)+
+					"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+emi.toFixed(2)+
+					"&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp"+end_balance.toFixed(2)+"</h1>");
+
+
+				balance=end_balance;
+				cr_month++;
+				if(cr_month===12){
+					cr_month=0;
+					cr_year++;
+				}
+			} 
+
+		}
+
+	</script>
+</head>
+<body>
+	<div class="loan">
+		Enter Amount :=<input type="number" id="amount" name="" placeholder="Enter Amount"><br><br>
+
+
+		Enter Loan Tenure :=<br>
+		<input type="number" placeholder="Enter Yr/Mo No." id="month" name="" style="margin-top: 10px; margin-bottom: 20px;">
+		<select style="padding: 5px;">
+			<option>To Year</option>
+			<option>To Month</option>
+		</select><br>
+
+<!-- --------------------------------------------------------------------------------------------- -->
+
+
+		Interest Rate (Reducing) :=<br>
+		<input type="number" name="" id="rate" placeholder="Rate (%)" style="margin-top: 10px; margin-bottom:20px">
+		<select style="padding: 5px;">
+			<option>To Month</option>
+			<option>To Year</option>
+		</select><br>
+
+<!-- ------------------------------------------------------------------------------------------ -->
+
+
+		Starting Month & Year :=<br>
+		<input type="number" name="" placeholder="Year" style="margin-top: 10px;">
+		<input type="Month" name="" placeholder="Month"><br>
+
+<!-- ---------------------------------------------------------------------------- -->
+
+		<input type="button" onclick="ans()" value="submit" name="" style="padding: 5px 30px; font-size: 20px; margin-left: 130px; margin-top: 20px; background-color: green; border: 2px solid; black;">
+
+		<div id="loop" class="title">
+			<h2>askak</h2>
+			<h2>ssada</h2>
+			<h2>ssada</h2>
+			<h2>ssada</h2>
+			<h2>ssada</h2>
+			<h2>ssada</h2>
+		</div>
+
+	</div>
+
+
+
+
+</body>
+</html>
