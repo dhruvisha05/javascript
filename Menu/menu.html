@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Menu</title>
+	<link rel="stylesheet" type="text/css" href="fonts/all.min.css">
+
+	<style type="text/css">
+		*{
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+		body{
+			background: #fcebdc;
+		}
+		header{
+			position: sticky;
+			top: 0;
+			background: #f0c49e;
+			z-index: 11;
+		}
+		header .header{
+			height: 70px;
+			display: flex;
+			align-items:center ;
+			justify-content: center;
+			color: #C76F50;
+			font-size: 30px;
+			letter-spacing: 2px;
+			border-top: 3px solid #fcebdc;
+		}
+		.icon{
+			display: flex;
+			justify-content: center;
+			padding:10px 0px  20px 0px;
+		}
+		.icon i{
+			font-size: 30px;
+			margin: 0px 20px 0px 20px;
+			color: #C76F50;
+		}
+		img{
+			height: 250px;
+			width: 250px;
+			margin: 10px;
+			border-radius: 20px;
+		}
+		.main{
+			display: flex;  
+			flex-wrap:wrap;
+			margin: 40px 0px;
+			justify-content: space-evenly;
+		}
+		.main .sm{
+			width: 45%;
+			display: flex;
+			border: 1px solid #e38856;
+			margin:10px 20px;
+			transition: transform .2s;
+		}
+		.sm:hover{
+			transform: scale(1.03);
+			box-shadow: 0px 10px 20px #e38856;
+		}
+		.info{
+			margin-left: 20px;
+			margin-top: 20px;
+		}
+		.info h1,.info h2{
+			margin: 15px 0;
+		}
+		.info input{
+			height: 15px;
+			width: 15px;
+		}
+		.info .caption{
+			margin-top: 10px;
+			font-weight: 550;
+			letter-spacing: 0.5px;
+			word-spacing: 2px;
+		}
+		.footer{
+			position: sticky;
+			bottom: 0;
+			background-color:#f0c49e ;
+			height: 180px;
+			display: flex;
+			justify-content: space-around;
+		}
+		.footer div{
+			margin: 10px 20px;
+
+		}
+		.footer div h2{
+			color:#C76F50 ;
+		}
+		.footer div input,
+		.footer div textarea,
+		.footer div select{
+			border: none;
+			background-color:#fcebdc ;
+			font-size: 18px;
+			margin:10px 0 5px 0;
+			font-family: serif;
+			font-weight: bold;
+			letter-spacing: 0.5px;
+			padding: 5px;
+			color: #C76F50;
+		}
+		.price{
+			display: flex;
+		}
+	</style>
+	<script type="text/javascript">
+		i=0;
+		rs=0;
+		var p=[];
+		var gst;
+		function getdata(s) {
+			var check=document.getElementById('check'+s);
+			if(check.checked==true)
+			{
+				var pro=document.getElementById('name'+s).innerHTML;
+				var s=document.getElementById('rs'+s).innerHTML;
+				// var s=s1.ubstr(0,3);
+				// console.log(s);
+				rs=rs+parseInt(s);
+				// console.log(p);
+				p[i]=pro;
+				i++;
+			}
+			else
+			{
+				var pro=document.getElementById('name'+s).innerHTML;
+				var s=document.getElementById('sum'+s).innerHTML;
+				for (var j = p.length - 1; j >= 0; j--) {
+					if(p[j]==pro)
+					{
+						p[j]=" ";
+						rs=rs-s;
+					}
+				}
+				// console.log("del",p);
+			}
+
+
+			document.getElementById('product_name').value=p;
+			document.getElementById('amount').value=rs+"Rs";
+			gst=(rs*18)/100;
+			gst1=rs+gst;
+			total=gst1;
+			document.getElementById('gst').value=gst+"Rs";
+			document.getElementById('gst1').value=gst1+"Rs";
+			document.getElementById('total').value=total+"Rs";
+			discount()
+		}
+		function discount(){
+			var disc=document.getElementById('disc').value;
+			console.log(gst);
+			var disc_amount=(gst1*parseInt(disc))/100;
+			console.log(disc_amount);
+			document.getElementById('disc_amount').value=disc_amount+"Rs";
+			total=gst1-disc_amount;
+			document.getElementById('total').value=total+"Rs";
+
+		}
+	</script>
+</head>
+<body>
+	<header>
+		<div class="icon">
+			<div class="icon_1">
+				<i class="fa-solid fa-burger" ></i>
+				<i class="fa-solid fa-bowl-rice"></i>
+				<i class="fa-solid fa-utensils"></i>
+				<i class="fa-solid fa-pizza-slice"></i>
+				<i class="fa-solid fa-cookie-bite"></i>
+				<i class="fa-solid fa-champagne-glasses"></i>
+				<i class="fa-solid fa-cheese"></i>
+			</div>
+		</div>
+		<h2 class="header">Fast Food</h2>
+	</header>
+	<main>
+		<div class="main">
+			<div class="sm">
+				<div><img src="image/Pizza.png"> </div>
+				<div class="info">
+					<h1 id="name1">Pizza</h1>
+					<h2 class="price">Rs. <p id="rs1">200</p>/-</h2>
+					<input type="checkbox" id="check1" onchange="getdata(1)" name="">
+					<p class="caption">Pizza is a dish of Italian origin consisting of a usually round, flat base of leavened wheat-based cheese ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/1.jpg"></div>
+				<div class="info">
+					<h1 id="name2">Burger</h1>
+					<h2 class="price">Rs. <p id="rs2">90</p>/-</h2>
+					<input type="checkbox"  id="check2" onchange="getdata(2)" name="">
+					<p class="caption">A burger is a patty of ground beef grilled and placed between two halves of a bun. Slices of raw onion, lettuce, bacon,mayonnaise, and other ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/fries.png"></div>
+				<div class="info">
+					<h1 id="name3">Fries</h1>
+					<h2 class="price">Rs. <p id="rs3">80</p>/-</h2>
+					<input type="checkbox"  id="check3" onchange="getdata(3)" name="">
+					<p class="caption">In the United States and most of Canada, the term french fries, sometimes capitalised as French fries, or shortened to fries, refers ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/2.jpg"></div>
+				<div class="info">
+					<h1 id="name4">Sandwich</h1>
+					<h2 class="price">Rs. <p id="rs4">180</p>/-</h2>
+					<input type="checkbox"  id="check4" onchange="getdata(4)" name="">
+					<p class="caption">In the United States and most of Canada, the term french fries, sometimes capitalised as French fries, or shortened to fries, refers ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/Burrito.jpeg"></div>
+				<div class="info">
+					<h1 id="name5">Burrito</h1>
+					<h2 class="price">Rs. <p id="rs5">140</p>/-</h2>
+					<input type="checkbox"  id="check5" onchange="getdata(5)" name="">
+					<p class="caption">In the United States and most of Canada, the term french fries, sometimes capitalised as French fries, or shortened to fries, refers ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/dosa.jpg"></div>
+				<div class="info">
+					<h1 id="name6">Dosa</h1>
+					<h2 class="price">Rs. <p id="rs6">199</p>/-</h2>
+					<input type="checkbox"  id="check6" onchange="getdata(6)" name="">
+					<p class="caption">In the United States and most of Canada, the term french fries, sometimes capitalised as French fries, or shortened to fries, refers ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/momos.jpeg"></div>
+				<div class="info">
+					<h1 id="name7">Momos</h1>
+					<h2 class="price">Rs. <p id="rs7">150</p>/-</h2>
+					<input type="checkbox"  id="check7" onchange="getdata(7)" name="">
+					<p class="caption">In the United States and most of Canada, the term french fries, sometimes capitalised as French fries, or shortened to fries, refers ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/Noodle.jpeg"></div>
+				<div class="info">
+					<h1 id="name8">Noodle</h1>
+					<h2 class="price">Rs. <p id="rs8">120</p>/-</h2>
+					<input type="checkbox"  id="check8" onchange="getdata(8)" name="">
+					<p class="caption">In the United States and most of Canada, the term french fries, sometimes capitalised as French fries, or shortened to fries, refers ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/Onion ring.jpg"></div>
+				<div class="info">
+					<h1 id="name7">Onion Ring</h1>
+					<h2 class="price">Rs. <p id="rs9">110</p>/-</h2>
+					<input type="checkbox"  id="check9" onchange="getdata(9)" name="">
+					<p class="caption">In the United States and most of Canada, the term french fries, sometimes capitalised as French fries, or shortened to fries, refers ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/pasta.jpg"></div>
+				<div class="info">
+					<h1 id="name10">Pasta</h1>
+					<h2 class="price">Rs. <p id="rs10">150</p>/-</h2>
+					<input type="checkbox"  id="check10" onchange="getdata(10)" name="">
+					<p class="caption">In the United States and most of Canada, the term french fries, sometimes capitalised as French fries, or shortened to fries, refers ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/samosa.jpg"></div>
+				<div class="info">
+					<h1 id="name11">Samosa</h1>
+					<h2 class="price">Rs. <p id="rs11">80</p>/-</h2>
+					<input type="checkbox"  id="check11" onchange="getdata(11)" name="">
+					<p class="caption">In the United States and most of Canada, the term french fries, sometimes capitalised as French fries, or shortened to fries, refers ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/garlic bread.webp"></div>
+				<div class="info">
+					<h1 id="name12">Garlic Bread</h1>
+					<h2 class="price">Rs. <p id="rs12">180</p>/-</h2>
+					<input type="checkbox"  id="check12" onchange="getdata(12)" name="">
+					<p class="caption">In the United States and most of Canada, the term french fries, sometimes capitalised as French fries, or shortened to fries, refers ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/Taco.jpg"></div>
+				<div class="info">
+					<h1 id="name13">Taco</h1>
+					<h2 class="price">Rs. <p id="rs13">190</p>/-</h2>
+					<input type="checkbox"  id="check13" onchange="getdata(13)" name="">
+					<p class="caption">In the United States and most of Canada, the term french fries, sometimes capitalised as French fries, or shortened to fries, refers ect... </p>
+				</div>
+			</div>
+			<div class="sm">
+				<div><img src="image/Wraps _ rolls.webp"></div>
+				<div class="info">
+					<h1 id="name14">Wraps & Rolls</h1>
+					<h2 class="price">Rs. <p id="rs14">130</p>/-</h2>
+					<input type="checkbox"  id="check14" onchange="getdata(14)" name="">
+					<p class="caption">In the United States and most of Canada, the term french fries, sometimes capitalised as French fries, or shortened to fries, refers ect... </p>
+				</div>
+			</div>
+		</div>
+	</main>
+	
+		<div class="footer">
+			<div>
+				<h2>Your Order Food Name</h2>
+				<textarea readonly id="product_name" cols="40" rows="5"></textarea>
+			</div>
+			<div>
+				<h2>Amount</h2>
+				<input type="text" name="" id="amount">
+				<h2>GST</h2>
+				<input type="text" value="18%" readonly name="">
+			</div>
+			<div>
+				<h2>Discount</h2>
+				<select onchange="discount()" id="disc">
+					<option value="0">Discount Coupan</option>
+					<option value="10">Discount 10%</option>
+					<option value="20">Discount 20%</option>
+					<option value="30">Discount 30%</option>
+					<option value="40">Discount 40%</option>
+				</select>
+				<h2>Discount amount</h2>
+				<input type="text" name="" id="disc_amount">
+			</div>
+			<div>
+				<h2>Total</h2>
+				<input type="text" name="" id="total">	
+			</div> 
+		</div>
+		
+	
+</body>
+</html>
